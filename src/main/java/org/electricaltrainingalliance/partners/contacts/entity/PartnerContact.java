@@ -61,23 +61,17 @@ public class PartnerContact implements Serializable, ValidEntity {
     @Column(name = "email_address", nullable = false)
     private String emailAddress;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne
 	@JoinColumn(
         name = "partner_id", 
         referencedColumnName = "partner_id",
-        insertable = false,
-        updatable = false,
-        nullable = false,
         foreignKey = @ForeignKey(name = "fk_contacts_partners"))
 	private TrainingPartner trainingPartner;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne
 	@JoinColumn(
         name = "type_id",
         referencedColumnName = "type_id",
-        insertable = false,
-        updatable = false,
-        nullable = false,
         foreignKey = @ForeignKey(name = "fk_contacts_types"))
 	private ContactType type;
 
